@@ -11,14 +11,14 @@ function RetrieveItems()
     if (substr( $applicationURI, 0, 3 ) === "ui-") {
         $catalogHost = "catalog-api-" . substr($applicationURI, 3);
     } else {
-        $catalogHost = str_replace("-ui-", "-catalog-api-", $applicationURI);
+         $catalogHost = str_replace("-ui-", "-catalog-api-", $applicationURI);
     }
     //echo "\r\ncatalogHost:" . $catalogHost;    
     $catalogRoute = "http://" . $catalogHost;
     //echo "\r\ncatalogRoute:" . $catalogRoute;    
     $url = $catalogRoute . "/items";
 
-    $curl = curl_init();
+    $curl = curl_init(); 
     curl_setopt($curl, CURLOPT_URL, $url);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
     $curlResult = curl_exec($curl);
